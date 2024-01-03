@@ -1,11 +1,11 @@
 # ICP Dummy Token Transfer Script
-This script is to test ICP dummy token transfer with an encoded memo from one principal ID to another and log the transactions
+This script is to test ICP dummy token transfer with an encoded memo and log the transactions
 
 # Prerequisites
 Before running the script, ensure you have the following installed:
 
-- Node.js (preferably the latest stable version)
-- npm (Node Package Manager)
+- Node.js
+- npm
 - Typescript
 
 # Installation
@@ -17,7 +17,9 @@ Run npm install to install all the necessary dependencies.
 The script requires specific principal IDs for the sender and receiver, and a seed phrase for the sender's identity. These are set up as constants at the top of the script. Ensure these values are correctly set before running the script:
 
 *principal_id_from*: The Principal ID of the sender.
+
 *principal_id_to*: The Principal ID of the recipient.
+
 *seedPhrase*: The seed phrase for the sender's identity.
 
 
@@ -34,8 +36,8 @@ The script performs the following actions:
 2. Waits for 4 seconds.
 3. Logs the transactions associated with the recipient's principal ID.
 
-Output
-The script outputs the following information to the console:
+# Output
+The script output should include some responses from approving and sending a transfer, then it will log transaction data to the console:
 
 ```
 Successful transfer of ICP dummy token
