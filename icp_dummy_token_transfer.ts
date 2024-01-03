@@ -101,7 +101,7 @@ async function icpDummyTokenTransactionLog() {
 }
 
 async function executeIcpOperations() {
-  await icpDummyTokenTransfer(150_000);
+  await icpDummyTokenTransfer(160_000);
 
   // Wait for 4 seconds before executing icpDummyTokenTransactionLog
   setTimeout(async () => {
