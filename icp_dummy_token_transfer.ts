@@ -14,13 +14,16 @@ import {
 } from "./icp/index";
 import { getTransactions } from "./icp/get_transactions";
 
+const principal_id_from = "rs5mh-o6yer-kpzmc-vgwfe-7ye7l-5olpo-gj7ud-xxwmm-cnoa2-v6dyr-aae";
+const principal_id_to = "rg2ah-xl6x4-z6svw-bdxfv-klmal-cwfel-cfgzg-eoi6q-nszv5-7z5hg-sqe";
+
 
 async function icpDummyTokenTransfer(transfer_amount: number) {
   // seed phrase for Principal ID: rs5mh-o6yer-kpzmc-vgwfe-7ye7l-5olpo-gj7ud-xxwmm-cnoa2-v6dyr-aae
   const seedPhrase =
     "arrest citizen supreme indicate opinion eager company test nice ginger emerge jar";
 
-  // random uuid
+  // random uuids
   const quote_uuid = "120bdd4f-6614-4c94-aaca-739e20752b5c";
   const destination_uuid = "00b40fcf-8821-4fd1-9694-fba675338f81";
   const encodedMemo = encodeUuids(quote_uuid, destination_uuid);
@@ -45,10 +48,10 @@ async function icpDummyTokenTransfer(transfer_amount: number) {
     // Call the icrc2_transfer_from function
     const response = await callIcrc2TransferFrom(agent, {
       from_principal: Principal.fromText(
-        "rs5mh-o6yer-kpzmc-vgwfe-7ye7l-5olpo-gj7ud-xxwmm-cnoa2-v6dyr-aae"
+        principal_id_from
       ),
       to_principal: Principal.fromText(
-        "rg2ah-xl6x4-z6svw-bdxfv-klmal-cwfel-cfgzg-eoi6q-nszv5-7z5hg-sqe"
+        principal_id_to
       ),
       amount: transfer_amount,
       memo: [encodedMemo],
@@ -62,7 +65,7 @@ async function icpDummyTokenTransfer(transfer_amount: number) {
 
 async function icpDummyTokenTransactionLog() {
   try {
-    const transactions = await getTransactions();
+    const transactions = await getTransactions(principal_id_to);
     let count = transactions.length;
 
     for (const tx of transactions) {
@@ -98,12 +101,12 @@ async function icpDummyTokenTransactionLog() {
 }
 
 async function executeIcpOperations() {
-  await icpDummyTokenTransfer(140_000);
+  await icpDummyTokenTransfer(150_000);
 
-  // Wait for 5 seconds before executing icpDummyTokenTransactionLog
+  // Wait for 4 seconds before executing icpDummyTokenTransactionLog
   setTimeout(async () => {
     await icpDummyTokenTransactionLog();
-  }, 5000);
+  }, 4000);
 }
 
 executeIcpOperations();
