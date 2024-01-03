@@ -1,0 +1,29 @@
+{
+  "name": "icp_test_script",
+  "version": "1.0.0",
+  "description": "Script to test ICP dummy token transfer and logging with an encoded memo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elliotpark410/icp_test_script.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elliotpark410/icp_test_script/issues"
+  },
+  "homepage": "https://github.com/elliotpark410/icp_test_script#readme",
+  "dependencies": {
+    "@dfinity/agent": "^0.20.2",
+    "@dfinity/candid": "^0.20.2",
+    "@dfinity/identity-secp256k1": "^0.20.2",
+    "@dfinity/principal": "^0.20.2",
+    "cross-fetch": "^4.0.0",
+    "decimal.js": "^10.4.3",
+    "ic0": "^0.2.8"
+  }
+}
